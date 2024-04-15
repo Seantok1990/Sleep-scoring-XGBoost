@@ -9,6 +9,7 @@ install.packages(c('tidyverse','xgboost','caret','mixtools'))
 # Usage
 Using Sirenia Sleep Software, perform your power calculations and your scoring of a Training Set and Test Set for the training of the model. It is recommended to have around 20 recording sessions of at least 1 hour each. Once all the scoring is done,
 export all the files using the export "Power + Scores to TSV' from the menu in Sirenia Sleep:
+
 ![image](https://github.com/Seantok1990/Sleep-scoring-XGBoost/assets/159004287/e8d4d142-054b-404a-b071-0479f7bb11b1)
 
 Split the tsv files into a test and training folder. It is recommended to have a 60-40 training test split.
@@ -32,8 +33,11 @@ Creates a dense matrix for the purposes of training in XGBoost.
 
 # Features
 Data Preprocessing: The data preprocessing steps involve reading, cleaning, calculations on the dataset and feature engineering to prepare the data for training.
+
 Model Training: XGBoost is used to train the classification model on the preprocessed sleep data.
+
 Model Evaluation: The trained model can be evaluated using various metrics such as accuracy, precision, recall, and F1-score to assess its performance. The default metric is mlogloss for multiclass classification
+
 Model Deployment: Once the model is trained and evaluated, it saves the model as an .model file, and the feature list as a .features file.
 
 License
