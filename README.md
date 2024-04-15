@@ -8,7 +8,8 @@ install.packages(c('tidyverse','xgboost','caret','mixtools'))
 
 # Usage
 Using Sirenia Sleep Software, perform your power calculations and your scoring of a Training Set and Test Set for the training of the model. It is recommended to have around 20 recording sessions of at least 1 hour each. Once all the scoring is done,
-export all the files using the export "Power + Scores to TSV' from the menu in Sirenia Sleep:![image](https://github.com/Seantok1990/Sleep-scoring-XGBoost/assets/159004287/e8d4d142-054b-404a-b071-0479f7bb11b1)
+export all the files using the export "Power + Scores to TSV' from the menu in Sirenia Sleep:
+![image](https://github.com/Seantok1990/Sleep-scoring-XGBoost/assets/159004287/e8d4d142-054b-404a-b071-0479f7bb11b1)
 
 Split the tsv files into a test and training folder. It is recommended to have a 60-40 training test split.
 Run the code with the necessary modifications to the script to change the folder where your data is stored.
