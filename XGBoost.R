@@ -6,7 +6,6 @@ library(tidyverse)
 library(xgboost)
 library(caret)
 library(mixtools)
-library(dplyr)
 
 pre_process=function(input_file)
 {
@@ -38,6 +37,7 @@ pre_process=function(input_file)
   df_out=df1 %>% select(contains('EMG')) %>% cbind(eeg1,eeg2,.,class=df1[,score_index])
   df_out$class=gsub(255,0,df_out$class);
   df_out$class=as.numeric(df_out$class);
+  
   #remove NAs
   df_out[!df_out$EEG1_Alpha_EEG1_Beta_Ratio=='NaN',];
   #add next and previous row to each feature
@@ -132,7 +132,7 @@ xg_test=xg_Dmat[[4]]
 xg_test_label=xg_Dmat[[5]]
 
 #set model hyperparameters
-params=list(booster='gbtree',objective='multi:softprob',eval_metric='merror',eta=0.1,gamma=4.5,max_depth=8,num_class=length(unique(xg_Dmat[[3]])),subsample=0.7)
+params=list(booster='gbtree',objective='multi:softprob',eval_metric='mlogloss',eta=0.1,gamma=4.5,max_depth=8,num_class=length(unique(xg_Dmat[[3]])),subsample=0.7)
 
 # grid search
 # grid_params=expand.grid(nrounds=seq(1000),max_depth=c(3:15),eta=seq(0.1,0.5,0.1),gamma=seq(0,5,0.5),subsample=seq(0,1,0.2),min_child_weight=1,colsample_bytree=1)
